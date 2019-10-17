@@ -20,7 +20,7 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 
-    Route::resource('setting', 'SettingController');
+    Route::resource('message', 'MessageController');
 });
 
 Route::resource('category', 'CategoryController');

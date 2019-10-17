@@ -17,12 +17,17 @@
                <a href="#" class="nav-link"><i data-feather="package"></i> Apps</a>
                <ul class="navbar-menu-sub">
                     <li class="nav-sub-item">
-                         <a href="{{ route('setting.index') }}" class="nav-sub-link"><i
+                         <a href="{{ route('message.index') }}" class="nav-sub-link"><i
                                    data-feather="mail"></i>Message</a>
                     </li>
                     <li class="nav-sub-item">
-                         <a href="{{ route('setting.index') }}" class="nav-sub-link">
-                              <i data-feather="settings"></i>Setting
+                         <a href="{{ route('token.index') }}" class="nav-sub-link">
+                              <i data-feather="settings"></i>Token
+                         </a>
+                    </li>
+                    <li class="nav-sub-item">
+                         <a href="{{ route('category.index') }}" class="nav-sub-link">
+                              <i data-feather="file"></i>Categories
                          </a>
                     </li>
                </ul>
