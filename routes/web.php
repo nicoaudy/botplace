@@ -22,3 +22,6 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
 
     Route::resource('setting', 'SettingController');
 });
+
+Route::resource('category', 'CategoryController');
+Route::resource('token', 'TokenController');
