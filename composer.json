@@ -11,6 +11,7 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "imliam/laravel-env-set-command": "^1.0",
+        "irazasyed/telegram-bot-sdk": "^3.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
