@@ -2,22 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-30">
+        <div>
+            <h4 class="mg-b-0 tx-spacing--1">Dashboard</h4>
         </div>
     </div>
+
 </div>
 @endsection

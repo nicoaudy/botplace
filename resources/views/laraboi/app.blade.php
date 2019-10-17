@@ -11,7 +11,7 @@
      <!-- Favicon -->
      <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
 
-     <title>Laraboi 🔥</title>
+     <title>{{ env('APP_NAME', 'Laraboi')}}</title>
 
      <!-- vendor css -->
      <link href="{{ asset('lib/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -29,13 +29,10 @@
      @include('laraboi.partials.header')
 
      <div id="app">
-          <div class="content content-fixed content-auth">
+          <div class="content content-fixed">
                @yield('content')
           </div>
      </div>
-
-
-     @include('laraboi.partials.footer')
 
      <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
      <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

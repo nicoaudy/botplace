@@ -1,6 +1,6 @@
-# Laraboi - Laravel boilerplate 🔥🤙
+# BotPlace
 
-For personal use 🚀
+Dashboard panel to configure and send message to telegram, will add other sdk soon.
 
 ## Installation
 

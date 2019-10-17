@@ -1,9 +1,9 @@
 <div class="navbar-brand">
-     <a href="{{ route('home') }}" class="df-logo">Lara<span>boi</span></a>
+     <a href="{{ route('home') }}" class="df-logo">{{ env('APP_NAME', 'Laraboi') }}</a>
 </div>
 <div id="navbarMenu" class="navbar-menu-wrapper">
      <div class="navbar-menu-header">
-          <a href="{{ route('home') }}" class="df-logo">Lara<span>boi</span></a>
+          <a href="{{ route('home') }}" class="df-logo">{{ env('APP_NAME', 'Laraboi') }}</a>
           <a id="mainMenuClose" href=""><i data-feather="x"></i></a>
      </div>
 
@@ -17,25 +17,12 @@
                <a href="#" class="nav-link"><i data-feather="package"></i> Apps</a>
                <ul class="navbar-menu-sub">
                     <li class="nav-sub-item">
-                         <a href="app-calendar.html" class="nav-sub-link">
-                              <i data-feather="calendar"></i>Calendar
-                         </a>
+                         <a href="{{ route('setting.index') }}" class="nav-sub-link"><i
+                                   data-feather="mail"></i>Message</a>
                     </li>
                     <li class="nav-sub-item">
-                         <a href="app-chat.html" class="nav-sub-link"><i data-feather="message-square"></i>Chat</a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="app-contacts.html" class="nav-sub-link"><i data-feather="users"></i>Contacts</a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="app-file-manager.html" class="nav-sub-link">
-                              <i data-feather="file-text"></i>File
-                              Manager
-                         </a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="app-mail.html" class="nav-sub-link">
-                              <i data-feather="mail"></i>Mail
+                         <a href="{{ route('setting.index') }}" class="nav-sub-link">
+                              <i data-feather="settings"></i>Setting
                          </a>
                     </li>
                </ul>
@@ -68,7 +55,6 @@
                               </li>
                               @endcan
                          </ul>
-
                          <ul>
                               <li class="nav-label">Impersonating</li>
                               @can('impersonate')
