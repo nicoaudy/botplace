@@ -21,14 +21,8 @@
                                    data-feather="mail"></i>Message</a>
                     </li>
                     <li class="nav-sub-item">
-                         <a href="{{ route('token.index') }}" class="nav-sub-link">
-                              <i data-feather="settings"></i>Token
-                         </a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="{{ route('category.index') }}" class="nav-sub-link">
-                              <i data-feather="file"></i>Categories
-                         </a>
+                         <a href="{{ route('contact.index') }}" class="nav-sub-link"><i
+                                   data-feather="user"></i>Contact</a>
                     </li>
                </ul>
           </li>
@@ -59,6 +53,19 @@
                                    </a>
                               </li>
                               @endcan
+                         </ul>
+                         <ul>
+                              <li class="nav-label">Configuration</li>
+                              <li class="nav-sub-item">
+                                   <a href="{{ route('category.index') }}" class="nav-sub-link">
+                                        <i data-feather="file"></i>Categories
+                                   </a>
+                              </li>
+                              <li class="nav-sub-item">
+                                   <a href="{{ route('token.index') }}" class="nav-sub-link">
+                                        <i data-feather="settings"></i>Token
+                                   </a>
+                              </li>
                          </ul>
                          <ul>
                               <li class="nav-label">Impersonating</li>

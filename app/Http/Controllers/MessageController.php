@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Telegram\GetUpdatesAction;
-use App\DataTables\MessageDatatable;
 use App\Models\Token;
 use Telegram\Bot\Api;
+use App\DataTables\MessageDatatable;
 
 class MessageController extends Controller
 {

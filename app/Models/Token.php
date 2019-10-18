@@ -15,6 +15,11 @@ class Token extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
     public function scopeActive()
     {
         return $this->where('active', true);
