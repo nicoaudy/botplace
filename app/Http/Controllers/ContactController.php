@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Telegram\GetUpdatesAction;
+use App\Models\Token;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Token;
+use App\Actions\Telegram\GetUpdatesAction;
 
 class ContactController extends Controller
 {
@@ -24,11 +24,6 @@ class ContactController extends Controller
         })->paginate($perPage);
 
         return view('contact.index', compact('contact'));
-    }
-
-    public function create()
-    {
-        return view('contact.create');
     }
 
     public function store(GetUpdatesAction $action)
@@ -53,37 +48,6 @@ class ContactController extends Controller
 
         flash('Your data has been created')->success();
         return redirect()->back();
-    }
-
-    public function show($id)
-    {
-        $contact = Contact::findOrFail($id);
-
-        return view('contact.show', compact('contact'));
-    }
-
-    public function edit($id)
-    {
-        $contact = Contact::findOrFail($id);
-
-        return view('contact.edit', compact('contact'));
-    }
-
-    public function update($id)
-    {
-        $contact = Contact::findOrFail($id);
-        $contact->update(request()->all());
-
-        flash('Your data has been updated')->success();
-        return redirect('contact');
-    }
-
-    public function destroy($id)
-    {
-        Contact::destroy($id);
-
-        flash('Your data has been deleted')->error();
-        return redirect('contact');
     }
 
     private function checkIfExist($identifier)

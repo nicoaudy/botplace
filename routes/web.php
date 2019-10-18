@@ -23,5 +23,5 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
     Route::resource('message', 'MessageController');
     Route::resource('category', 'CategoryController');
     Route::resource('token', 'TokenController');
-    Route::resource('contact', 'ContactController');
+    Route::resource('contact', 'ContactController')->only(['index', 'store']);
 });
