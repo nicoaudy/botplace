@@ -4,26 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Token;
 use App\Models\Contact;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Actions\Telegram\GetUpdatesAction;
+use App\DataTables\ContactDatatable;
 
 class ContactController extends Controller
 {
-    public function index(Request $request)
+    public function index(ContactDatatable $datatable)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        $contact = Contact::when($keyword, function ($query) use ($keyword) {
-            $query->where('identifier', 'LIKE', "%$keyword%")
-                ->orWhere('first_name', 'LIKE', "%$keyword%")
-                ->orWhere('last_name', 'LIKE', "%$keyword%")
-                ->orWhere('username', 'LIKE', "%$keyword%")
-                ->orWhere('is_bot', 'LIKE', "%$keyword%");
-        })->paginate($perPage);
-
-        return view('contact.index', compact('contact'));
+        return $datatable->render('contact.index');
     }
 
     public function store(GetUpdatesAction $action)
