@@ -28,14 +28,14 @@ class ContactController extends Controller
                     'token_id'  => Token::active()->first()->id,
                     'identifier' => $user['id'],
                     'first_name' => $user['first_name'],
-                    'last_name' => $user['last_name'],
+                    'last_name' => isset($user['last_name']) ? $user['last_name'] : null,
                     'username' => $user['username'],
                     'is_bot' => $user['is_bot']
                 ]);
             }
         }
 
-        flash('Your data has been created')->success();
+        flash('Sync data successfully')->success();
         return redirect()->back();
     }
 

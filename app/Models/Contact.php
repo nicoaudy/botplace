@@ -14,4 +14,9 @@ class Contact extends Model
     {
         return $this->belongsTo(Token::class);
     }
+
+    public function scopeActiveToken()
+    {
+        return $this->whereTokenId(Token::active()->first()->id);
+    }
 }

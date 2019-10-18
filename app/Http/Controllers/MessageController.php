@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Token;
-use Telegram\Bot\Api;
+use App\Models\Contact;
 use App\DataTables\MessageDatatable;
+use App\Actions\Telegram\PostMessageAction;
 
 class MessageController extends Controller
 {
@@ -13,14 +13,16 @@ class MessageController extends Controller
         return $datatable->render('message.index');
     }
 
-    public function store()
+    public function create()
     {
-        $telegram = new Api(Token::first()->value);
-        $response = $telegram->sendMessage([
-            'chat_id' => '280560002',
-            'text' => 'Hi From me'
-        ]);
+        $contact = Contact::activeToken()->get()->pluck('username', 'identifier');
+        return view('message.create', compact('contact'));
+    }
 
-        dd($response->getMessageId());
+    public function store(PostMessageAction $post)
+    {
+        $response = $post->execute(request('chat_id'), request('text'));
+        flash('Send message successfully, with message id ' . $response)->success();
+        return redirect('/message');
     }
 }
