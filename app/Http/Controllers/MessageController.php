@@ -10,9 +10,6 @@ class MessageController extends Controller
 {
     public function index(MessageDatatable $datatable)
     {
-        // $telegram = new Api(Token::first()->value);
-        // $query = $telegram->getUpdates();
-        // dd(\Carbon\Carbon::parse($query[0]['message']['date'])->format('D M Y'));
         return $datatable->render('message.index');
     }
 
