@@ -45,6 +45,8 @@
      <script src="{{ asset('lib/js-cookie/js.cookie.js') }}"></script>
      <script src="{{ asset('assets/js/dashforge.settings.js') }}"></script>
 
+     @yield('scripts')
+
 </body>
 
 </html>

@@ -21,7 +21,6 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
     });
 
     Route::resource('message', 'MessageController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('token', 'TokenController');
 });
-
-Route::resource('category', 'CategoryController');
-Route::resource('token', 'TokenController');
