@@ -22,6 +22,7 @@ class TokenController extends Controller
 
     public function store()
     {
+        $this->changeOtherStatus(request('active'));
         Token::create(request()->all());
         flash('Your data has been created')->success();
         return redirect('token');
@@ -43,6 +44,8 @@ class TokenController extends Controller
     public function update($id)
     {
         $token = Token::findOrFail($id);
+
+        $this->changeOtherStatus(request('active'));
         $token->update(request()->all());
 
         flash('Your data has been updated')->success();
@@ -54,5 +57,12 @@ class TokenController extends Controller
         Token::destroy($id);
         flash('Your data has been deleted')->error();
         return redirect('token');
+    }
+
+    private function changeOtherStatus($status)
+    {
+        if ($status == 1) {
+            Token::where('active', 1)->update(['active' => false]);
+        }
     }
 }

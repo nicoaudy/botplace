@@ -31,7 +31,8 @@ class MessageDatatable extends DataTable
 
     public function query()
     {
-        $telegram = new Api(Token::first()->value);
+        $token = Token::active()->first()->value;
+        $telegram = new Api($token);
         return $telegram->getUpdates();
     }
 

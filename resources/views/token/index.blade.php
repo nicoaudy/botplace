@@ -38,7 +38,10 @@
                             <h6 class="tx-color-01 mg-b-5">
                                 <a href="{{ url('/token/' . $row->id) }}">{{ $row->name}}</a>
                             </h6>
-                            <p class="tx-12 mg-b-10">{{ $row->description }}</p>
+                            <p class="tx-12 mg-b-10">
+                                {!! $row->active ? '<b style="color: blue">Active</b>' : '<b style="color: red">Not
+                                    Active</b>' !!}
+                                - {{ $row->description }}</p>
                         </div>
                     </div>
                 </div>
