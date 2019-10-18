@@ -2,12 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\Token;
-use Telegram\Bot\Api;
 use Illuminate\Support\Carbon;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+use App\Actions\Telegram\GetUpdatesAction;
 
 class MessageDatatable extends DataTable
 {
@@ -29,11 +28,10 @@ class MessageDatatable extends DataTable
             });
     }
 
-    public function query()
+    public function query(GetUpdatesAction $action)
     {
-        $token = Token::active()->first()->value;
-        $telegram = new Api($token);
-        return $telegram->getUpdates();
+        $message = $action->execute();
+        return $message;
     }
 
     public function html()
